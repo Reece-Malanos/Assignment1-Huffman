@@ -8,11 +8,20 @@ void printMenu () {
     std::cout << "4. Please Close this Program" << std::endl;
 }
 
+
+
 void encryptFile () {
 }
 
+
+
+
 void decryptFile () {
 }
+
+
+
+
 
 void displayContents () {
 }
@@ -25,13 +34,10 @@ int main () {
     while(selection != 4) {
         printMenu();
         std::cin >> selection;
-
         if (selection = 1){}
         if (selection = 2){}
         if (selection = 3){}
-    
-
     }
-
     std::cout << "Tank you, good bye." << std::endl;
+    return 1;
 }
