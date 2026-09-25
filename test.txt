@@ -1,0 +1,30 @@
+Hi, this is a Text File. It was made by me, Reece Malanos, because I needed to test how c++ traverses a text file. 
+
+
+I’m also going to be handling new Lines
+
+L
+I
+K
+E
+
+T
+H
+I
+S
+
+
+And maybe even
+
+1
+ 2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Weird that 2 was out of line there. That’s because it should be. It was by design you fool.
