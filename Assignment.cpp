@@ -12,13 +12,13 @@ void printMenu () {
 
 
 
-void encryptFile () {
+void compressFile () {
 }
 
 
 
 
-void decryptFile () {
+void decompressFile () {
 }
 
 
