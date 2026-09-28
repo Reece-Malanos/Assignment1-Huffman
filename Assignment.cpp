@@ -3,7 +3,7 @@
 #include <fstream>
 
 void printMenu () {
-    std::cout << "\nMenu Options" << std::endl;
+    std::cout << '\n' << "\nMenu Options" << std::endl;
     std::cout << "1. Decompress File" << std::endl;
     std::cout << "2. Compress File" << std::endl;
     std::cout << "3. Display File Contents" << std::endl;
@@ -25,8 +25,13 @@ void decryptFile () {
 
 
 
-void displayContents () {
-
+void displayContents (std::ifstream& file) {
+    char letter;
+    while (file.get(letter)){
+        std::cout << letter;
+    }
+    file.clear();
+    file.seekg(0);
 }
 
 
@@ -56,11 +61,7 @@ int main () {
         }
 
         if (selection == 3){
-            char letter;
-            while (file.get(letter)){
-                std::cout << letter;
-            }
-
+            displayContents(file);
         }
     }
     std::cout << "Tank you, good bye." << std::endl;
