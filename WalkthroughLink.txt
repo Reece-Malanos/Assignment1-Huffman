@@ -1,1 +1,6 @@
 https://youtu.be/WFKL2gPNskc
+
+g++ -Wall -Wextra -Werror -std=c++20 Assignment.cpp -o run  
+
+
+if that helps
