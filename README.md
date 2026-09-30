@@ -15,3 +15,4 @@ there are 6 options in the menu,
 
 Honestly the main goal of this was just to see if i could do it. unfortunately, i needed AI help but i'll elborate in my report. 
 
+PLEASE RENAME ANY OF THE test2/3/4 Files to "test.txt" BEFORE RUNNING or while running it doesn't matter just have one called test.txt
