@@ -96,8 +96,21 @@ void compressFile(std::ifstream& file) {
         binaryCharacterMap(Final,"", binaryCodes);
 
         for(const auto& [character, code] : binaryCodes){
-            std::cout << character << " -> " << code << std::endl;
+            std::cout << character << " -> " << code << std::endl; 
+        } // this prints out each character and their 0 and 1 traversal assignments.
+
+
+        file.clear();
+        file.seekg(0);
+        
+        std::string textinbinary;
+        while(file.get(letter)){
+            textinbinary += binaryCodes[letter];
         }
+        std::cout << std::endl << "Full Binary Code" << std::endl << textinbinary << std::endl;
+        file.clear();
+        file.seekg(0);
+
     }
        
 
