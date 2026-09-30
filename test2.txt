@@ -1,0 +1,92 @@
+Programming Assignment 1 Description
+Programming Assignment 1: Algorithm Implementation Project
+
+Effort: approximately 20 hours over three weeks
+Format: individual project
+Submission: code repository, track output, written report, and a short video walkthrough
+Overview
+
+You will implement a non-trivial algorithm or data structure from the provided list (or propose your own, with approval), and then do substantial additional work building on that implementation. The implementation itself is the foundation, not the whole project. The bulk of your effort and grade comes from what you do with the implementation.
+
+The use of AI tools, including LLMs such as Claude or ChatGPT, is permitted and expected. The assignment is designed assuming you have access to these tools. You must disclose how you used them as part of your report. See the AI Use Policy at the end of this document.
+Choosing a Track
+
+You will choose one of three tracks. Each track is designed to consume roughly the same effort but produces a different kind of artifact. Different items on the project list are better suited to different tracks; the list indicates suggested tracks for each item.
+
+Track A: Implementation and Empirical Study. Implement the algorithm, then design and run a careful empirical study comparing it against at least one baseline. The point is to understand where theory and practice agree, where they diverge, and why. Good fits include heaps, search trees, graph algorithms, FFT and integer multiplication, computational geometry, and string matching algorithms.
+
+Track B: Implementation and Building Something. Implement the algorithm, then build a working tool that uses it as a core component. The tool should have a real user interface — a command-line tool with sensible options, or a small GUI. Good fits include diff (build an industrial-strength diff tool), regex matching (build a regex engine with a CLI), Huffman or LZW (build a working compressor and compare against gzip), parsing (build a tiny language), ray tracing, A* applied to puzzle solving, and Gale-Shapley applied to a real matching problem.
+
+Track C: Implementation and Deep Understanding. Implement the algorithm and produce a detailed correctness commentary explaining why it works: which invariants hold where, why each tricky step is necessary, and what breaks if you change things. Can you formalise the
+correctness of the algorithm in an automated theorem verifier like Lean?  Good fits are the genuinely difficult algorithms where getting a working implementation is itself substantial: splay trees, link-cut trees, suffix trees, AKS primality, Schönhage-Strassen, Valiant's parsing algorithm, cactus graphs, SMAWK.
+Deliverables
+
+All three tracks produce the same four deliverables.
+
+1. A working implementation in a single repository, with a README explaining how to build and run it.  GitHub is preferred, but not
+required.
+
+2. The track-specific artifact.
+Track A — the benchmarking harness, data generation, and results;
+Track B — the working tool with its interface;
+Track C — the correctness commentary.
+
+3. A written report, structured as follows.
+
+(a) What I built. A short description of the algorithm or data structure you implemented and the key design decisions you made: language, data representation, any simplifications or extensions relative to the textbook version, and anything a reader needs to know to navigate the code. This should orient a reader before they open the repository, not duplicate the README.
+
+(b) The track-specific writeup.
+Track A — the empirical study: what you compared, your hypotheses, how you generated data and measured, your results with plots, and your analysis of why the results came out the way they did;
+Track B — the tool: what it does, how the algorithm sits inside it, the interface decisions you made, and a worked example of it in use;
+Track C — the correctness commentary, or a summary of it if the commentary itself lives in the code.
+
+(c) What I learned. What surprised you? What did you initially get wrong? What is something you understand now that you didn't before starting? Specific examples carry far more weight here than general statements. A sentence like "I was surprised that the Fibonacci heap was slower than std::priority_queue on every workload I tried, and I now believe this is because of cache behaviour" is the kind of content I'm looking for.
+
+(d) AI use. Described in detail in the next section.
+
+4. A video walkthrough of your implementation, described in the Video Walkthrough section below.
+AI Use Policy
+
+LLMs and other AI tools are permitted. The assignment is designed assuming you use them. There is no penalty for using them well, and no reward for pretending not to.
+
+Your report must contain an "AI use" section that addresses the following:
+
+    Which tools you used, and roughly how much. ("I used Claude for most of the implementation work and ChatGPT for help with the matplotlib API" is a fine level of detail.)
+
+    What you used them for: scaffolding the implementation, debugging, writing tests, generating plot code, drafting parts of the report, explaining concepts you didn't understand, and so on.
+
+    At least two specific examples of where the AI was wrong, unhelpful, or misleading, and what you did about it. This might be a hallucinated API, a buggy implementation, a subtly wrong explanation, a benchmark approach that turned out not to measure what it claimed to measure, or anything else. Every student who uses these tools seriously will encounter such cases. If you can't think of any, you probably didn't use the tools enough — or you used them without checking the output, which is the failure mode this section is designed to catch.
+
+    What you understood vs what you took on trust. Be honest about parts of your code or analysis where you're not fully sure what the AI produced is correct. This is not penalized; it's expected. What's penalized is claiming understanding you don't have.
+
+The goal of this section is honest engagement, not performance. A student who writes "I used Claude heavily, it produced a working implementation in an hour, but then I spent ten hours benchmarking and discovered the implementation had a subtle off-by-one in the merge operation that only showed up on certain inputs" is doing exactly what this assignment wants.
+Video Walkthrough
+
+Alongside your submission, you will record a 3–5 minute screencast walking through your implementation, with your code on screen and your voice explaining it. The video must cover:
+
+    The core of the implementation: where the main algorithm or data structure lives in your code, and how it's organised.
+
+    One tricky part: the piece of code you found hardest to get right, and why.
+
+    One invariant: state it, show where it's established, and show where it's relied on.
+
+    One "what breaks" example: pick a specific line or step, and explain what would go wrong if it were changed or removed.
+
+Production quality does not matter at all. A single take with a screen recorder and no editing is exactly what's expected; do not spend time on slides, scripts, or editing. Submit the video file or an unlisted link alongside your repository.
+
+The purpose of the video is to make one thing directly visible: can you explain your own code? Given the AI use policy above, "I wrote every line myself" is not the standard — but "I can walk you through what this does and why it's correct" is. A student who used AI heavily and can explain their submission is in a fine position; a student who cannot explain their submission is not, regardless of how the code was produced.
+
+If your video raises questions — or the gap between the polish of the submission and the walkthrough is hard to explain — I may invite you to a short live follow-up where we look at the code together. If that conversation reveals a serious gap between the submission and your understanding of it, I may adjust the relevant components of your mark accordingly.
+Grading
+
+The total mark is divided as follows:
+
+    Implementation correctness and quality (25%): does it work, is it reasonably clean, does it handle edge cases?
+
+    Track-specific work (45%): the quality of the empirical study, the tool, or the correctness commentary.
+
+    Report quality (20%): clarity, structure, depth of reflection in the "what I learned" section.
+
+    AI use disclosure (10%): honesty and specificity of the AI use section.
+
+The "what I learned" content in the report and the AI use section together form a substantial fraction of the grade.
