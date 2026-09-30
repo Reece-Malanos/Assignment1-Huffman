@@ -27,6 +27,18 @@ void printMenu () {
     std::cout << "4. Please Close this Program" << std::endl;
 }
 
+void binaryCharacterMap(Node* node, std::string binary, std::unordered_map<char, std::string>& map) {
+    if(node == nullptr){return;}
+    if(node->Left == nullptr && node->Right == nullptr)
+    {
+        map[node->letter] = binary;
+        return;
+    }
+    binaryCharacterMap(node->Left,binary + "0",map);
+    binaryCharacterMap(node->Right,binary + "1",map);
+
+}
+
 
 
 void compressFile(std::ifstream& file) { 
@@ -57,14 +69,37 @@ void compressFile(std::ifstream& file) {
         };
         TreeOfNodes.push(node);
         }
-
-        while(!TreeOfNodes.empty()) { // i like seeing things happening.
-            Node* printout = TreeOfNodes.top();
-            TreeOfNodes.pop();
+        auto testprint = TreeOfNodes;
+        while(!testprint.empty()) { // i like seeing things happening.
+            Node* printout = testprint.top();
+            testprint.pop();
             std::cout << printout->letter << " appears " << printout->frequency << " times." << std::endl;
         }
 
-}
+        while(TreeOfNodes.size() > 1) {
+            Node* ChildL = TreeOfNodes.top();
+            TreeOfNodes.pop();
+            Node* ChildR = TreeOfNodes.top();
+            TreeOfNodes.pop();
+            Node* Parent = new Node {
+                '\0',
+                ChildL->frequency + ChildR->frequency,
+                ChildL,
+                ChildR
+            };
+            TreeOfNodes.push(Parent);
+        }
+
+        Node* Final = TreeOfNodes.top();
+        
+        std::unordered_map<char,std::string> binaryCodes;
+        binaryCharacterMap(Final,"", binaryCodes);
+
+        for(const auto& [character, code] : binaryCodes){
+            std::cout << character << " -> " << code << std::endl;
+        }
+    }
+       
 
 
 
