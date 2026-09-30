@@ -2,6 +2,22 @@
 #include <string>
 #include <fstream>
 #include <unordered_map>
+#include <queue>
+
+
+
+struct Node {
+    char letter;
+    int frequency;
+    Node* Left;
+    Node* Right;
+};
+
+struct CompareFreq {
+  bool operator()(Node* a, Node* b) {
+    return a->frequency > b->frequency;
+  }
+};
 
 void printMenu () {
     std::cout << '\n' << "\nMenu Options" << std::endl;
@@ -24,8 +40,30 @@ void compressFile(std::ifstream& file) {
 
 
     for(const auto& [character,count] : frequency) {
-        std::cout << "'" << character << "': " << count << std::endl;    
+        std::cout << "'" << character << "': " << count << std::endl;    // just thought it would be cool to see the frequencies of each character. and new lines. also so i could test how easy it was to iterate through the unordered_map
+        
         }
+
+// QUEUE TIME :D 
+    std::priority_queue<Node*,std::vector<Node*>,CompareFreq> TreeOfNodes;
+
+    for(const auto& [character,count] : frequency) { // turned everything into nodes so i can actually build the binary tree paths.
+
+        Node* node = new Node{
+            character,
+            count,
+            nullptr,
+            nullptr
+        };
+        TreeOfNodes.push(node);
+        }
+
+        while(!TreeOfNodes.empty()) { // i like seeing things happening.
+            Node* printout = TreeOfNodes.top();
+            TreeOfNodes.pop();
+            std::cout << printout->letter << " appears " << printout->frequency << " times." << std::endl;
+        }
+
 }
 
 
